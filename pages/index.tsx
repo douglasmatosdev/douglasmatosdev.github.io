@@ -1,7 +1,4 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -13,8 +10,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="text-9xl font-bold underline">Hello world!</h1>
-        <h2 className="text-4xl">This is my website</h2>
+        <header>
+          <ul
+            className={`flex flex-col p-8 
+              sm:hidden sm:flex-row
+            `}
+          >
+            {["DMS", "Home", "Portfolio", "Contact"].map(
+              (item: string, index: number) => (
+                <li
+                  key={`header_${item}_${index}`}
+                  className="text-md first:basis-10/12 border border-sky-500"
+                >
+                  {item}
+                </li>
+              )
+            )}
+          </ul>
+        </header>
       </main>
     </>
   );
